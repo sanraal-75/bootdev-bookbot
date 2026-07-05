@@ -1,4 +1,4 @@
-from stats import word_count, character_occurances, sort_dictionary
+from stats import word_count, character_occurances, sort_dictionary, chars_dict_to_sorted_list 
 import sys
 
 def get_book_text(filepath):
@@ -8,10 +8,10 @@ def get_book_text(filepath):
 
 def main():
 
-    if len(sys.argv) != 2:
-        print("Usage: python3 main.py <path_to_book>")
-        sys.exit(1)
-    book = (sys.argv)[1]
+    # # if len(sys.argv) != 2:
+    # #     print("Usage: python3 main.py <path_to_book>")
+    # #     sys.exit(1)
+    book = "./books/frankenstein.txt" #(sys.argv)[1]
     
     book_text = get_book_text(book)
     book_word_count = word_count(book_text)
@@ -21,9 +21,10 @@ def main():
     print("----------- Word Count ----------")
     print(f"Found {book_word_count} total words")
     print("--------- Character Count -------")
-    for entry in pretty_list:
-        if entry["char"].isalpha() == True:
-            print (f"{entry["char"]}: {entry["num"]}")
 
+    # for entry in pretty_list:
+    #     if entry["char"].isalpha() == True:
+    #         print (f"{entry["char"]}: {entry["num"]}")
+    print (chars_dict_to_sorted_list(character_occurances(book_text)))
 
 main()

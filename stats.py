@@ -26,4 +26,14 @@ def sort_dictionary (dictionary):
 def helper(input):
     return input["num"]
 
+def sort_on(to_sort: tuple[str,int]) -> int:
+    return to_sort[1]
+
+def chars_dict_to_sorted_list(dictionary_tosort: dict[str, int]) -> list[tuple[str, int]]:
+    unsorted_list = []
+    for char in dictionary_tosort:
+        my_tuple= (char),(dictionary_tosort[char])
+        unsorted_list.append(my_tuple)
+    sorted_list = sorted(unsorted_list, reverse=True, key=sort_on)
+    return sorted_list
 
